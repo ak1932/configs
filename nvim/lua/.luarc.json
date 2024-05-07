@@ -1,0 +1,11 @@
+{
+    "workspace.library": [
+        "/home/ak/.config/nvim",
+        "/etc/xdg/nvim",
+        "/home/ak/.local/share/nvim/site",
+        "/usr/share/nvim/runtime",
+        "/usr/lib/nvim",
+        "/usr/share/vim/vimfiles",
+        "${3rd}/luassert/library"
+    ]
+}
