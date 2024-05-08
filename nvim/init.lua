@@ -13,7 +13,6 @@ require "plugins.other_plugins_config"
 require "LSP.lspconfig"
 require "LSP.compe"
 
-
 vim.cmd("colorscheme catppuccin-macchiato")
 vim.api.nvim_create_autocmd("VimEnter", {pattern = "*", command = "silent exec '!kill -s SIGWINCH $PPID'"}) -- For correct resizing during startup
 
