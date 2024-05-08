@@ -9,12 +9,8 @@ vim.keymap.set({"i", "s"}, "<C-E>", function()
 	end
 end, {silent = true})
 
-vim.api.nvim_set_keymap("n", "<leader>lv", ":lua require('nabla').popup()<CR>", {}) -- latex visualize
-
 vim.g.mapleader = " "
 -- " setup mapping to call :LazyGit
--- nnoremap <silent> <leader>gg :LazyGit<CR>
-vim.api.nvim_set_keymap("n", "<leader>gg", ":silent LazyGit<CR>", {})
 
 -- vim.api.nvim_set_keymap("n", "bq", "<cmd>bdelete!<CR>",{})
 
@@ -29,7 +25,8 @@ vim.api.nvim_set_keymap("n", "<A-S-k>", "m`:silent -g/\\m^\\s*$/d<CR>``:noh<CR>"
 vim.api.nvim_set_keymap("n", "<A-j>", ":set paste<CR>m`o<Esc>``:set nopaste<CR>", {})
 vim.api.nvim_set_keymap("n", "<A-k>", ":set paste<CR>m`O<Esc>``:set nopaste<CR>", {})
 
-vim.api.nvim_set_keymap("n", "<leader>c", ":colorscheme pywal<CR>", {})
+-- Search through all projects
+vim.api.nvim_set_keymap("n", "<leader>P", ":Telescope projects<CR>", {})
 
 -- Use Y to copy rest of the line
 vim.api.nvim_set_keymap("n", "Y", "y$", {})

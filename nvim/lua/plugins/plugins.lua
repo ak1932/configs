@@ -30,29 +30,6 @@ require("lazy").setup({
     { 'hrsh7th/cmp-vsnip' },
     { 'hrsh7th/vim-vsnip' },
 
-
-    { 'jbyuki/nabla.nvim' },
-    {
-        "epwalsh/obsidian.nvim",
-        tag = "*", -- recommended, use latest release instead of latest commit
-        dependencies = {
-            -- Required.
-            "nvim-lua/plenary.nvim",
-
-            -- see below for full list of optional dependencies 👇
-        },
-        config = function()
-            require("obsidian").setup({
-                workspaces = {
-                    {
-                        name = "personal",
-                        path = "~/Documents/Obsidian",
-                    },
-                },
-                -- see below for full list of options 👇
-            })
-        end,
-    },
     {
         'alexghergh/nvim-tmux-navigation',
         config = function()
@@ -69,11 +46,6 @@ require("lazy").setup({
             }
         end
     },
-
-    {
-        "barafael/neomake-platformio"
-    },
-
 
     {
         "ahmedkhalf/project.nvim",
@@ -101,10 +73,13 @@ require("lazy").setup({
 
     { 'kyazdani42/nvim-web-devicons', lazy=false, priority=1000},
 
+    {
+        'numToStr/Comment.nvim',
+        lazy = false,
+    },
 
     { "lukas-reineke/indent-blankline.nvim" },
     { 'tpope/vim-surround' },   -- Change surrounding quotes brackets etc.
-    { 'tpope/vim-commentary' }, -- Comments
     { 'jiangmiao/auto-pairs' }, -- Auto close quotes brackets etc.
 
     -- Telescope
@@ -138,21 +113,6 @@ require("lazy").setup({
         end
     },
 
-    {
-        'jamestthompson3/nvim-remote-containers',
-        dependencies = { 'nvim-treesitter/nvim-treesitter' },
-        config = function()
-            require("devcontainer").setup {}
-        end
-    },
-
-    {
-        'esensar/nvim-dev-container',
-        dependencies = { 'nvim-treesitter/nvim-treesitter' },
-        config = function()
-            require("devcontainer").setup {}
-        end
-    },
     {
         "L3MON4D3/LuaSnip",
         -- follow latest release.
