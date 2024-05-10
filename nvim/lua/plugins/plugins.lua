@@ -19,6 +19,9 @@ require("lazy").setup({
         "neovim/nvim-lspconfig",
     },
 
+    -- Debugging
+    { "rcarriga/nvim-dap-ui", dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" } },
+
     -- Autocomplete
     { 'hrsh7th/cmp-nvim-lsp' },
     { 'hrsh7th/cmp-buffer' },
@@ -30,6 +33,7 @@ require("lazy").setup({
     { 'hrsh7th/cmp-vsnip' },
     { 'hrsh7th/vim-vsnip' },
 
+    -- Tmux movement with nvim
     {
         'alexghergh/nvim-tmux-navigation',
         config = function()
@@ -47,6 +51,7 @@ require("lazy").setup({
         end
     },
 
+    -- cd to project root automatically and search through recent projects
     {
         "ahmedkhalf/project.nvim",
         config = function()
@@ -54,33 +59,35 @@ require("lazy").setup({
         end
     },
 
-    { 'elkowar/yuck.vim' },
-    {
-        "kdheepak/lazygit.nvim",
-        -- optional for floating window border decoration
-        dependencies = {
-            "nvim-lua/plenary.nvim",
-        },
-    },
     -- Arduino
     { 'stevearc/vim-arduino' },
     { 'sudar/vim-arduino-syntax' },
 
 
     -- Appearance
-    { "shaunsingh/nord.nvim", lazy=false, priority=1000 },
-    { "catppuccin/nvim", name = "catppuccin",lazy=false, priority = 1000 },
+    { "shaunsingh/nord.nvim",         lazy = false,        priority = 1000 },
+    { "catppuccin/nvim",              name = "catppuccin", lazy = false,   priority = 1000 },
 
-    { 'kyazdani42/nvim-web-devicons', lazy=false, priority=1000},
+    { 'kyazdani42/nvim-web-devicons', lazy = false,        priority = 1000 },
 
+    -- Comments actions in nvim
     {
         'numToStr/Comment.nvim',
         lazy = false,
     },
 
     { "lukas-reineke/indent-blankline.nvim" },
-    { 'tpope/vim-surround' },   -- Change surrounding quotes brackets etc.
-    { 'jiangmiao/auto-pairs' }, -- Auto close quotes brackets etc.
+
+    {
+        'windwp/nvim-autopairs',
+        event = "InsertEnter",
+        config = true
+    },
+    {
+        "kylechui/nvim-surround",
+        version = "*", -- Use for stability; omit to use `main` branch for the latest features
+        event = "VeryLazy",
+    },
 
     -- Telescope
     {
@@ -105,6 +112,7 @@ require("lazy").setup({
         },
     },
 
+    -- Startup screen for nvim
     {
         'goolord/alpha-nvim',
         dependencies = { 'nvim-tree/nvim-web-devicons' },
@@ -113,6 +121,7 @@ require("lazy").setup({
         end
     },
 
+    -- Snippets for nvim
     {
         "L3MON4D3/LuaSnip",
         -- follow latest release.

@@ -1,5 +1,8 @@
   -- Setup nvim-cmp.
 
+-- If you want insert `(` after select function or method item
+local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+
 local cmp = require'cmp'
   require("luasnip.loaders.from_vscode").lazy_load()
   cmp.setup({
@@ -57,3 +60,10 @@ local cmp = require'cmp'
       { name = 'cmdline' }
     })
   })
+
+-- autopairs integration with nvim cmp
+cmp.event:on(
+  'confirm_done',
+  cmp_autopairs.on_confirm_done()
+)
+
