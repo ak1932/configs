@@ -1,1 +1,21 @@
-/home/ak/.bash_env
+. "$HOME/.cargo/env"
+export PATH="$PATH:/home/ak/development/tools/android/flutter/bin"
+export PATH="$PATH:/home/ak/go/bin"
+export PATH="$PATH:/home/ak/development/tools/android/cmdline-tools/latest/bin"
+export ANDROID_HOME="/home/ak/development/tools/android"
+
+
+export HISTSIZE=100000
+export HISTFILESIZE=100000
+
+# If not running interactively, don't do anything
+case $- in
+  *i*) ;;
+    *) return;;
+esac
+
+eval "$(starship init bash)"
+
+export PATH="$PATH:~/development/codes/shell"
+
+export PATH=$PATH:/home/ak/.spicetify

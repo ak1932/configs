@@ -1,1 +1,3 @@
-/home/ak/.bash_logout
+#
+# ~/.bash_logout
+#
