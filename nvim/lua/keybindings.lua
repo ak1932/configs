@@ -1,18 +1,11 @@
--- Snippets
-vim.keymap.set({"i"}, "<C-K>", function() ls.expand() end, {silent = true})
-vim.keymap.set({"i", "s"}, "<C-L>", function() ls.jump( 1) end, {silent = true})
-vim.keymap.set({"i", "s"}, "<C-J>", function() ls.jump(-1) end, {silent = true})
-
-vim.keymap.set({"i", "s"}, "<C-E>", function()
-	if ls.choice_active() then
-		ls.change_choice(1)
-	end
-end, {silent = true})
+--
+vim.api.nvim_set_keymap("n", "<leader>dt", ":DapUiToggle<CR>", {noremap = true})
+vim.api.nvim_set_keymap("n", "<leader>db", ":DapToggleBreakpoint<CR>", {noremap = true})
+vim.api.nvim_set_keymap("n", "<leader>dc", ":DapContinue<CR>", {noremap = true})
+vim.api.nvim_set_keymap("n", "<leader>dr", ":lua require('dapui').open({reset = true})<CR>", {noremap = true})
 
 vim.g.mapleader = " "
 -- " setup mapping to call :LazyGit
-
--- vim.api.nvim_set_keymap("n", "bq", "<cmd>bdelete!<CR>",{})
 
 -- Press F5 to run python script into separate term window
 vim.api.nvim_set_keymap("n", "<F5>", ":call Run() <CR>", {})

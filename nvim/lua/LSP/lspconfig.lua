@@ -52,7 +52,33 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
 require("mason").setup()
 require("mason-lspconfig").setup()
+
+require("dapui").setup()
+
 require("flutter-tools").setup {} -- use defaults
+require ('mason-nvim-dap').setup({
+    handlers = {
+        function(config)
+          -- all sources with no handler get passed here
+
+          -- Keep original functionality
+          require('mason-nvim-dap').default_setup(config)
+        end,
+        python = function(config)
+            config.adapters = {
+	            type = "executable",
+	            command = "/usr/bin/python3",
+	            args = {
+		            "-m",
+		            "debugpy.adapter",
+	            },
+            }
+            require('mason-nvim-dap').default_setup(config) -- don't forget this!
+        end,
+    },
+})
+
+
 require("mason-lspconfig").setup_handlers {
     -- The first entry (without a key) will be the default handler
     -- and will be called for each installed server that doesn't have
