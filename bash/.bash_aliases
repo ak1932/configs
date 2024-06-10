@@ -4,6 +4,13 @@ gcc_test () {
     g++ "$1" -g -o "./build/$1.o" && "./build/$1.o"
 }
 
+java_run () {
+    mkdir -p ./build
+    base=$(echo "$1" | cut -d . -f 1)
+    javac "$1" -d "./build" &&
+        java -classpath ./build "$base"
+}
+
 alias goldwarden="flatpak run --command=goldwarden com.quexten.Goldwarden"
 
 alias ls='ls --color=auto -a'
