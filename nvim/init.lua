@@ -1,9 +1,10 @@
+require "plugins.plugins"
+
 -- settings
 require "settings"
 require "keybindings"
 
 -- plugins
-require "plugins.plugins"
 require "plugins.telescope_config"
 require "plugins.treesitter_config"
 require "plugins.lualine_config"

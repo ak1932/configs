@@ -31,30 +31,6 @@ require("telescope").setup {
     },
   },
 
-  extensions = {
-    file_browser = {
-      theme = "ivy",
-      -- disables netrw and use telescope-file-browser in its place
-      hijack_netrw = true,
-      mappings = {
-        ["i"] = {
-          -- your custom insert mode mappings
-        },
-        ["n"] = {
-          -- your custom normal mode mappings
-        },
-      },
-    },
-  },
+  extensions = {},
 }
--- To get telescope-file-browser loaded and working with telescope,
--- you need to call load_extension, somewhere after setup function:
-require("telescope").load_extension "file_browser"
 require('telescope').load_extension('projects')
--- Telescope
--- Find files using Telescope command-line sugar.
-vim.api.nvim_set_keymap("n", "<leader>p", "<cmd>Telescope find_files<cr>", {})
-vim.api.nvim_set_keymap("n", "<leader>fb", "<cmd>Telescope file_browser<cr>", {})
-vim.api.nvim_set_keymap("n", "<leader>g", "<cmd>Telescope live_grep<cr>", {})
-vim.api.nvim_set_keymap("n", "<leader>b", "<cmd>Telescope buffers<cr>", {})
-vim.api.nvim_set_keymap("n", "<leader>h", "<cmd>Telescope help_tags<cr>", {})
