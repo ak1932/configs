@@ -1,5 +1,7 @@
 require "plugins.plugins"
 
+-- snippets
+require "snippets"
 -- settings
 require "settings"
 require "keybindings"
