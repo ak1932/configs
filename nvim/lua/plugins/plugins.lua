@@ -37,10 +37,6 @@ require("lazy").setup({
     { 'hrsh7th/cmp-cmdline' },
     { 'hrsh7th/nvim-cmp' },
 
-    -- Snippets
-    { 'hrsh7th/cmp-vsnip' },
-    { 'hrsh7th/vim-vsnip' },
-
     -- Tmux movement with nvim
     {
         'alexghergh/nvim-tmux-navigation',
@@ -103,8 +99,6 @@ require("lazy").setup({
         dependencies = { 'nvim-lua/plenary.nvim' }
     },
 
-    { 'nvim-telescope/telescope-file-browser.nvim' },
-
     {
         'nvim-treesitter/nvim-treesitter',
         run = ':TSUpdate'
@@ -140,4 +134,21 @@ require("lazy").setup({
     },
     { "rafamadriz/friendly-snippets" },
     { 'saadparwaiz1/cmp_luasnip' },
+    {
+        "nvim-neo-tree/neo-tree.nvim",
+        branch = "v3.x",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+            "MunifTanjim/nui.nvim",
+            -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
+        }
+
+    },
+    {
+        'stevearc/oil.nvim',
+        opts = {},
+        -- Optional dependencies
+        dependencies = { "nvim-tree/nvim-web-devicons" },
+    }
 })

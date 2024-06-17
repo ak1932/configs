@@ -1,16 +1,18 @@
-require "plugins.plugins"
-
--- snippets
-require "snippets"
 -- settings
 require "settings"
-require "keybindings"
 
 -- plugins
+require "plugins.plugins"
 require "plugins.telescope_config"
 require "plugins.treesitter_config"
 require "plugins.lualine_config"
 require "plugins.other_plugins_config"
+
+-- keybinds
+require "keybindings"
+
+-- snippets
+require "snippets"
 
 -- LSP
 require "LSP.lspconfig"

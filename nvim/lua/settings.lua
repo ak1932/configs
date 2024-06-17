@@ -84,7 +84,7 @@ vim.o.statusline = "%F"
 -- Use system clipboard
 -- http://vim.wikia.com/wiki/Accessing_the_system_clipboard
 -- for linux
--- vim.o.clipboard="unnamedplus"
+vim.o.clipboard="unnamedplus"
 
 -- Folding
 -- https://vim.fandom.com/wiki/Folding

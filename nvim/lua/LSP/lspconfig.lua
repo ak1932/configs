@@ -92,10 +92,12 @@ require("mason-lspconfig").setup_handlers {
         require 'lspconfig'.clangd.setup {
             cmd = {
                 "/usr/bin/clangd",
+                "--fallback-style=webkit",
                 "--background-index",
                 "--query-driver=/home/ak/.platformio/packages/toolchain-xtensa-esp32/bin/xtensa-esp32-elf-gcc*,/home/ak/.platformio/packages/toolchain-xtensa-esp32/bin/xtensa-esp32-elf-g++*,xtensa-esp32-elf-gcc*,xtensa-esp32-elf-g++*",
                 "--log=verbose",
             },
+
         }
     end,
     ["lua_ls"] = function()
