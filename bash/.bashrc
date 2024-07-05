@@ -26,9 +26,9 @@ if [ -z "$SSH_AUTH_SOCK" ] ; then
     eval `ssh-agent -s`
 fi
 
-# Set up zoxide
-eval "$(zoxide init bash)"
-
 # Set up fzf key bindings and fuzzy completion
 eval "$(fzf --bash)"
 source ~/.keychain/$HOSTNAME-sh
+
+# Set up zoxide
+eval "$(zoxide init bash)"
