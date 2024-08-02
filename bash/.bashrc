@@ -32,3 +32,7 @@ source ~/.keychain/$HOSTNAME-sh
 
 # Set up zoxide
 eval "$(zoxide init bash)"
+
+# Created by `pipx` on 2024-07-05 09:32:43
+export PATH="$PATH:/home/ak/.local/bin"
+if [ -f "/home/ak/.config/fabric/fabric-bootstrap.inc" ]; then . "/home/ak/.config/fabric/fabric-bootstrap.inc"; fi
