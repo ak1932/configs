@@ -91,9 +91,15 @@ vim.o.clipboard="unnamedplus"
 -- https://vim.fandom.com/wiki/All_folds_open_when_opening_a_file
 -- https://stackoverflow.com/questions/8316139/how-to-set-the-default-to-unfolded-when-you-open-a-file
 -- Toggle fold with za
-vim.o.foldmethod = "expr"
-vim.o.foldexpr = "nvim_treesitter#foldexpr()"
-vim.o.foldlevel = 5
-vim.o.foldnestmax = 1
-vim.o.foldlevelstart = 1
+-- vim.o.foldmethod = "expr"
+-- vim.o.foldexpr = "nvim_treesitter#foldexpr()"
+-- vim.o.foldlevel = 5
+-- vim.o.foldnestmax = 1
+-- vim.o.foldlevelstart = 1
+
+vim.o.foldcolumn = '0' -- '0' is not bad
+vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
+vim.o.foldlevelstart = 99
+vim.o.foldenable = true
+
 vim.o.encoding = "UTF-8"

@@ -8,14 +8,6 @@ export ANDROID_HOME="/home/ak/development/tools/android"
 export HISTSIZE=100000
 export HISTFILESIZE=100000
 
-# If not running interactively, don't do anything
-case $- in
-  *i*) ;;
-    *) return;;
-esac
-
-eval "$(starship init bash)"
-
 export PATH="$PATH:~/development/codes/shell"
-
-export PATH=$PATH:/home/ak/.spicetify
+export PATH="$PATH:/home/ak/.spicetify"
+export PATH="$PATH:/home/ak/.local/share/gem/ruby/3.2.0/bin"

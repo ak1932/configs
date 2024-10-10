@@ -1,5 +1,14 @@
 [[ $- != *i* ]] && return
 
+export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
+  --color=fg:#cad3f5,fg+:#d0d0d0,bg:#24273a,bg+:#262626
+  --color=hl:#ed8796,hl+:#5fd7ff,info:#c6a0f6,marker:#f4dbd6
+  --color=prompt:#c6a0f6,spinner:#f4dbd6,pointer:#f4dbd6,header:#ed8796
+  --color=border:#b8aac8,label:#aeaeae,query:#d9d9d9
+  --border="rounded" --border-label="" --preview-window="border-rounded" --prompt="> "
+  --marker=">" --pointer="◆" --separator="─" --scrollbar="│"
+  --info="right"'
+
 source ~/.bash_env
 source ~/.bash_aliases
 
@@ -33,6 +42,10 @@ source ~/.keychain/$HOSTNAME-sh
 # Set up zoxide
 eval "$(zoxide init bash)"
 
+# starship prompt
+eval "$(starship init bash)"
+
 # Created by `pipx` on 2024-07-05 09:32:43
 export PATH="$PATH:/home/ak/.local/bin"
 if [ -f "/home/ak/.config/fabric/fabric-bootstrap.inc" ]; then . "/home/ak/.config/fabric/fabric-bootstrap.inc"; fi
+alias nnvim=/home/ak/nvim/usr/bin/nvim

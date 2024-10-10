@@ -1,30 +1,45 @@
 require("mason").setup()
 require("mason-lspconfig").setup()
 
-require("dapui").setup()
 
 require("flutter-tools").setup {} -- use defaults
-require ('mason-nvim-dap').setup({
-    handlers = {
-        function(config)
-          -- all sources with no handler get passed here
 
-          -- Keep original functionality
-          require('mason-nvim-dap').default_setup(config)
-        end,
-        python = function(config)
-            config.adapters = {
-	            type = "executable",
-	            command = "/usr/bin/python3",
-	            args = {
-		            "-m",
-		            "debugpy.adapter",
-	            },
-            }
-            require('mason-nvim-dap').default_setup(config) -- don't forget this!
-        end,
-    },
-})
+-- require("dapui").setup()
+-- require ('mason-nvim-dap').setup({
+--     handlers = {
+--         function(config)
+--           -- all sources with no handler get passed here
+--
+--           -- Keep original functionality
+--           require('mason-nvim-dap').default_setup(config)
+--         end,
+--         python = function(config)
+--             config.adapters = {
+-- 	            type = "executable",
+-- 	            command = "/usr/bin/python3",
+-- 	            args = {
+-- 		            "-m",
+-- 		            "debugpy.adapter",
+-- 	            },
+--             }
+--             require('mason-nvim-dap').default_setup(config) -- don't forget this!
+--         end,
+--     },
+-- })
+
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.foldingRange = {
+    dynamicRegistration = false,
+    lineFoldingOnly = true
+}
+local language_servers = require("lspconfig").util.available_servers() -- or list servers manually like {'gopls', 'clangd'}
+for _, ls in ipairs(language_servers) do
+    require('lspconfig')[ls].setup({
+        capabilities = capabilities
+        -- you can add other fields for setting up lsp server in this table
+    })
+end
+require('ufo').setup()
 
 
 require("mason-lspconfig").setup_handlers {

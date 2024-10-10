@@ -19,16 +19,8 @@ require("lazy").setup({
         "neovim/nvim-lspconfig",
     },
 
-    -- Debugging
-    {
-        "jay-babu/mason-nvim-dap.nvim",
-        dependencies = {
-            "williamboman/mason.nvim",
-            "mfussenegger/nvim-dap",
-        }
-    },
-
-    { "rcarriga/nvim-dap-ui", dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" } },
+    --- Folding
+    {'kevinhwang91/nvim-ufo', dependencies = {'kevinhwang91/promise-async'}},
 
     -- Autocomplete
     { 'hrsh7th/cmp-nvim-lsp' },
