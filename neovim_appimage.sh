@@ -21,5 +21,9 @@ cd /tmp
 mkdir -p nvim
 cd nvim
 git clone https://github.com/ak1932/configs
+if [[ -d $HOME/.config/nvim ]]; then 
+    echo "Neovim config detected...backing up it to $HOME/.config/nvim.bak"
+    mv $HOME/.config/nvim $HOME/.config/nvim.bak;
+fi
 cd configs
-mv nvim ~/.config
+mv nvim $HOME/config

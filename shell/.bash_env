@@ -4,7 +4,6 @@ export PATH="$PATH:/home/ak/go/bin"
 export PATH="$PATH:/home/ak/development/tools/android/cmdline-tools/latest/bin"
 export ANDROID_HOME="/home/ak/development/tools/android"
 
-
 export HISTSIZE=100000
 export HISTFILESIZE=100000
 
