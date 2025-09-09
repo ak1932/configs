@@ -6,13 +6,13 @@ vim.keymap.set('n', 'zR', require('ufo').openAllFolds)
 vim.keymap.set('n', 'zM', require('ufo').closeAllFolds)
 
 -- neotree
-vim.api.nvim_set_keymap("n", "<leader>t", ":Neotree toggle<CR>", {noremap = true})
+vim.api.nvim_set_keymap("n", "<leader>t", ":Neotree toggle<CR>", { noremap = true })
 
 --
-vim.api.nvim_set_keymap("n", "<leader>dt", ":DapUiToggle<CR>", {noremap = true})
-vim.api.nvim_set_keymap("n", "<leader>db", ":DapToggleBreakpoint<CR>", {noremap = true})
-vim.api.nvim_set_keymap("n", "<leader>dc", ":DapContinue<CR>", {noremap = true})
-vim.api.nvim_set_keymap("n", "<leader>dr", ":lua require('dapui').open({reset = true})<CR>", {noremap = true})
+vim.api.nvim_set_keymap("n", "<leader>dt", ":DapUiToggle<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>db", ":DapToggleBreakpoint<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>dc", ":DapContinue<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>dr", ":lua require('dapui').open({reset = true})<CR>", { noremap = true })
 
 
 vim.g.mapleader = " "
@@ -52,10 +52,17 @@ vim.api.nvim_set_keymap("n", "<leader>aq", "<ESC>i<C-a>\\y:q<CR>", {})
 
 -- Telescope
 -- Find files using Telescope command-line sugar.
-vim.api.nvim_set_keymap("n", "<leader>p", "<cmd>Telescope find_files<cr>", {})
-vim.api.nvim_set_keymap("n", "<leader>g", "<cmd>Telescope live_grep<cr>", {})
-vim.api.nvim_set_keymap("n", "<leader>b", "<cmd>Telescope buffers<cr>", {})
-vim.api.nvim_set_keymap("n", "<leader>h", "<cmd>Telescope help_tags<cr>", {})
+vim.api.nvim_set_keymap("n", "<leader>ff", "<cmd>Telescope find_files<cr>", {})
+vim.api.nvim_set_keymap("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", {})
+vim.api.nvim_set_keymap("n", "<leader>fb", "<cmd>Telescope buffers<cr>", {})
+vim.api.nvim_set_keymap("n", "<leader>fh", "<cmd>Telescope help_tags<cr>", {})
+
+-- Gitsigns
+-- Git actions
+vim.api.nvim_set_keymap("n", "<leader>gb", "<cmd>Gitsigns blame_line<cr>", {})
+vim.api.nvim_set_keymap("n", "<leader>gn", "<cmd>Gitsigns next_hunk<cr>", {})
+vim.api.nvim_set_keymap("n", "<leader>gN", "<cmd>Gitsigns prev_hunk<cr>", {})
+vim.api.nvim_set_keymap("n", "<leader>gp", "<cmd>Gitsigns preview_hunk_inline<cr>", {})
 
 
 -- Search through all projects
@@ -76,8 +83,8 @@ require 'nvim-tmux-navigation'.setup {
 
 -- Snippets tab functionality
 local function prequire(...)
-local status, lib = pcall(require, ...)
-if (status) then return lib end
+    local status, lib = pcall(require, ...)
+    if (status) then return lib end
     return nil
 end
 
@@ -120,10 +127,6 @@ _G.s_tab_complete = function()
     return ""
 end
 
-vim.api.nvim_set_keymap("i", "<Tab>", "v:lua.tab_complete()", {expr = true})
-vim.api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
-vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
-vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
 vim.api.nvim_set_keymap("i", "<C-E>", "<Plug>luasnip-next-choice", {})
 vim.api.nvim_set_keymap("s", "<C-E>", "<Plug>luasnip-next-choice", {})
 
@@ -178,4 +181,3 @@ vim.api.nvim_create_autocmd('LspAttach', {
         end, opts)
     end,
 })
-
