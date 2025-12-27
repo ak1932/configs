@@ -50,12 +50,31 @@ vim.api.nvim_set_keymap("n", "<leader>ap", "<cmd>ArduinoChooseProgrammer<CR>", {
 vim.api.nvim_set_keymap("n", "<leader>as", "<cmd>ArduinoSerial<CR>", {})
 vim.api.nvim_set_keymap("n", "<leader>aq", "<ESC>i<C-a>\\y:q<CR>", {})
 
+local telescope_builtin = require('telescope.builtin')
 -- Telescope
 -- Find files using Telescope command-line sugar.
-vim.api.nvim_set_keymap("n", "<leader>ff", "<cmd>Telescope find_files<cr>", {})
-vim.api.nvim_set_keymap("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", {})
-vim.api.nvim_set_keymap("n", "<leader>fb", "<cmd>Telescope buffers<cr>", {})
-vim.api.nvim_set_keymap("n", "<leader>fh", "<cmd>Telescope help_tags<cr>", {})
+vim.keymap.set('n', '<leader>ff', telescope_builtin.find_files, { desc = 'Telescope find files' })
+vim.keymap.set("n", "<leader>fcf", function()
+  local cwd = vim.fn.expand("%:p:h")
+  telescope_builtin.find_files({ cwd = cwd })
+end, { desc = "Live grep in buffer's directory" })
+
+vim.keymap.set('n', '<leader>fg', telescope_builtin.live_grep, { desc = 'Telescope live grep' })
+vim.keymap.set("n", "<leader>fcg", function()
+  local cwd = vim.fn.expand("%:p:h")
+  telescope_builtin.live_grep({ cwd = cwd })
+end, { desc = "Live grep in buffer's directory" })
+
+vim.keymap.set('n', '<leader>fb', telescope_builtin.buffers, { desc = 'Telescope buffers' })
+vim.keymap.set('n', '<leader>fh', telescope_builtin.help_tags, { desc = 'Telescope help tags' })
+
+vim.keymap.set('n', '<leader>fk', telescope_builtin.keymaps, { desc = 'Telescope keymaps' })
+vim.keymap.set('n', '<leader>fm', telescope_builtin.man_pages, { desc = 'Telescope man pages' })
+
+vim.keymap.set('n', '<leader>rg', telescope_builtin.registers, { desc = 'Telescope man pages' })
+
+vim.keymap.set('n', '<leader>gr', telescope_builtin.lsp_references, { desc = 'Telescope LSP references' })
+vim.keymap.set('n', 'gd', telescope_builtin.lsp_definitions, { desc = 'Telescope lsp definitions'})
 
 -- Gitsigns
 -- Git actions
@@ -162,8 +181,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
         -- Buffer local mappings.
         -- See `:help vim.lsp.*` for documentation on any of the below functions
         local opts = { buffer = ev.buf }
-        vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
-        vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
         vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
         vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
         vim.keymap.set('n', '<C-s>', vim.lsp.buf.signature_help, opts)
@@ -175,7 +192,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
         vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, opts)
         vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
         vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, opts)
-        vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
         vim.keymap.set('n', '<space>f', function()
             vim.lsp.buf.format { async = true }
         end, opts)
